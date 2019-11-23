@@ -1,0 +1,64 @@
+/* transforms.css */
+
+.caja {
+  width: 200px;
+  height: 200px;
+  font-size: 50px;
+  line-height: 200px;
+  text-align: center;
+  
+  background-color: tomato;
+  margin: 50px auto;
+
+  transition: all 0.5s;
+}
+
+.uno:hover {
+  /* scale agranda o achica elementos de acuerdo a la escala que le pasemos como argumento 
+  el valor original es 1
+  al usar transforms generamos una nueva capa entonces no empuja los otros elementos :) yay 
+  warning! ojo al aplicarlo en algun elemento con z-index porque puede llegar a afectar ese comportamiento 
+  se agranda o achica el elemento y tambien su contenido
+  al usar scaleY o scaleX solo se escala un eje del elemento 
+  un scale negativo rota el elemento scaleY(-1) invierte o refleja
+  */
+  transform: scale(-1);
+}
+
+.dos:hover {
+  /* rota elementos, le pasamos un numero + deg que son los grados que rotara 
+    valor: positivo: sentido del reloj
+    valor: negativo: sentido opuesto
+    tb puede pasarse cantidad de vueltas rotate(2turn)
+  */
+  transform: rotate(5turn);
+}
+
+.tres:hover {
+  /*
+    Inclina al elemento la cantidad de grados pasada como argumento
+    Puede servir para elementos que no sean rectangulos y cuadrados (boring!)
+    Funciona solo con el eje X por default
+    salvo que se aclare skewY(-15deg);
+  */
+  transform: skewY(-15deg);
+}
+
+.cuatro:hover {
+  /*
+    Mover elementos. Recibe dos argumentos: cuanto lo queres mover en x y cuanto en y 
+    Tambien se puede usar unidades de porcentajes
+  */
+  transform: translate(-50px, 100px);
+}
+
+.cinco:hover {
+  /*
+    Como son todas la misma propuedad (transform) no se puede aplicar varias a la vez en un mismo
+    elemento :(
+    Se ejecutan las dos al mismo tiempo :(
+    Warning con el orden de las propiedades puede dar distintos resultados
+    porque puede pasar que rotemos el eje del elemento
+  */
+  transform: scale(1.5) skew(15deg) rotate(45deg);
+}

@@ -1,0 +1,93 @@
+/* transition.css */
+
+.caja {
+  width: 200px;
+  height: 200px;
+  font-size: 50px;
+  line-height: 200px;
+  text-align: center;
+  
+  background-color: tomato;
+  margin: 50px auto;
+}
+
+.uno {
+  /*
+    Las transiciones siempre van a depender de una interaccion del user
+    Las transiciones hacen que los cambios en el elemento sean mediante una transicion que dure X seg
+    Solo se puede aplicar en cambios que impliquen una propiedad numerica (no display :()
+    all 2s --> todas las propiedades
+    sino puedo designar que propiedad tarda
+    border-radius 2s --> tmb se puede desglosar en transition property o transition duration
+    la duracion siempre es en segundos o mili segundos
+    1s --> 1 segundo
+    1000ms = 1 segundo
+  */
+  transition-property: border-radius, background-color;
+  transition-duration: 0.5s,          5s;
+}
+
+.uno:hover {
+  background-color: greenyellow;
+  border-radius: 50%;
+  transform: rotate(20deg);
+}
+
+.dos {
+  /*
+    transition-delay: cuanto tarda en empezar a aplicar la transition
+  */
+  transition-property: transform, border-radius,  color;
+  transition-duration: 1s,         2s,            1s;
+  transition-delay:    0s,         1s,            3s;
+}
+
+.dos:hover {
+  transform: rotate(30deg);
+  color: purple;
+  border-radius: 50%;
+}
+
+.tres {
+  /*
+    Al aplicar la transicion en :hover le estamos diciendo como queremos que vaya la transicion a la ida pero no a la vuelta
+  */
+  opacity: 0.3;
+  
+  /* Vuelta */
+  transition-delay: 3s;
+  transition-duration: 4s;
+}
+
+.tres:hover{
+  opacity: 1;
+
+  /* Ida */
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-delay: 0s;
+}
+
+.cuatro {
+  /* aceleracion 
+    transition-timing-function: ease-in; default mas rapido al principio
+    linear: constante
+    ease-out mas lento al principio
+    ease-in-out al medio
+    Las funciones de aceleracion son curvas
+    cubic-bezier  -> https://cubic-bezier.com/  check! piolas para generar rebotes :)
+    https://stripe.com/ referencias piolas
+  */
+  transition-property: transform;
+  transition-duration: 2s;
+  transition-timing-function: cubic-bezier(.95,.05,.8,.04);
+}
+
+.cuatro:hover {
+  transform: rotate(2turn);
+}
+
+/*
+  La desventaja de las transiciones es que requieren un punto de inicio y fin y no se sostiene en el tiempo
+  Las transiciones son mas performantes con transform y opacity que con position o margin
+*/
