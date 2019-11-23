@@ -1,0 +1,8 @@
+/* svg.css */
+
+iframe {
+  /*  Eliminamos estilos predeterminados de Iframe */
+  border: none;
+  width: 200px;
+  height: 400px;
+}

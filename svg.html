@@ -1,0 +1,55 @@
+<!doctype html>
+  <html lang="es">
+    <head>
+      <title>SVGs</title>
+      <meta charset="utf-8">
+      <link href="svg.css" rel="stylesheet">
+    </head>
+    <body>
+      <h1>SVGs!</h1>
+      
+      <h2>Como img tag</h2>
+      <!-- No es interactivo. Ideal para logos o cosas que no voy a modificar -->
+      <img src="./prueba.svg" alt="Prueba de SVG">
+
+      <h2>Como iframe</h2>
+      <!-- Es interactivo. Se ve poco estético -->
+      <iframe src="./prueba.svg"></iframe>
+
+      <h2>SVG inline</h2>
+      <!-- Insertar directamente el codigo SVG en el archivo HTML 
+          Es interactivo pero si es muy extenso, queda feo en el código 
+          Aconsejable para SVGs pequeños -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="400">
+        <style>
+          rect, circle {
+            transition: fill 2s;
+            stroke: #F90;
+            stroke-width: 3px;
+          }
+          rect:hover {
+            fill: forestgreen;
+            stroke-width: 1px;
+          }
+      
+          circle:hover {
+            fill: pink;
+            stroke-width: 1px;
+          }
+        </style>
+        <rect x="20" y="50" width="120" height="40" fill="#900" />
+        <circle cx="30" cy="100" r="80" fill="#090" />
+      </svg>
+      <h2>Otras opciones</h2>
+      <ul>
+        <li>Como background image en css (sin interacciones)</li>
+        <li>Como embed, una etiqueta ya obsoleta</li>
+        <li>Como object, se utilizaba en las epocas de flash</li>
+      </ul>
+      <!--
+        Referencias
+        https://codepen.io/chrisgannon/
+      -->
+    </body>
+  </html>
+</html>
